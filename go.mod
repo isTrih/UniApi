@@ -6,6 +6,7 @@ require github.com/gogf/gf/v2 v2.6.1
 
 require (
 	github.com/BurntSushi/toml v1.2.0 // indirect
+	github.com/apistd/uni-go-sdk v0.0.2 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
 	github.com/fatih/color v1.15.0 // indirect
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
