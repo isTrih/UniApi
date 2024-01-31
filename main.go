@@ -1,6 +1,7 @@
 package main
 
 import (
+	_ "UniApi/internal/logic"
 	_ "UniApi/internal/packed"
 
 	"github.com/gogf/gf/v2/os/gctx"

@@ -6,3 +6,8 @@ gfcli:
     build: "-a amd64 -s linux -p temp -ew"
     tagPrefixes:
       - my.image.pub/my-app
+  gen:
+    dao:
+      - link: "mysql:bbuNMC:vucgyn-2deSwo-debnud@tcp(sh-cynosdbmysql-grp-qwle14yg.sql.tencentcdb.com:25708)/nmc"
+        prefix: "nmc_"
+        descriptionTag: true

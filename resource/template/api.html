@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    /* bootstrap.css删减 */
+    @charset "UTF-8";:root,[data-bs-theme=light]{--bs-blue:#0d6efd;--bs-indigo:#6610f2;--bs-purple:#6f42c1;--bs-pink:#d63384;--bs-red:#dc3545;--bs-orange:#fd7e14;--bs-yellow:#ffc107;--bs-green:#198754;--bs-teal:#20c997;--bs-cyan:#0dcaf0;--bs-black:#000;--bs-white:#fff;--bs-gray:#6c757d;--bs-gray-dark:#343a40;--bs-gray-100:#f8f9fa;--bs-gray-200:#e9ecef;--bs-gray-300:#dee2e6;--bs-gray-400:#ced4da;--bs-gray-500:#adb5bd;--bs-gray-600:#6c757d;--bs-gray-700:#495057;--bs-gray-800:#343a40;--bs-gray-900:#212529;--bs-primary:#0d6efd;--bs-secondary:#6c757d;--bs-success:#198754;--bs-info:#0dcaf0;--bs-warning:#ffc107;--bs-danger:#dc3545;--bs-light:#f8f9fa;--bs-dark:#212529;--bs-primary-rgb:13,110,253;--bs-secondary-rgb:108,117,125;--bs-success-rgb:25,135,84;--bs-info-rgb:13,202,240;--bs-warning-rgb:255,193,7;--bs-danger-rgb:220,53,69;--bs-light-rgb:248,249,250;--bs-dark-rgb:33,37,41;--bs-primary-text-emphasis:#052c65;--bs-secondary-text-emphasis:#2b2f32;--bs-success-text-emphasis:#0a3622;--bs-info-text-emphasis:#055160;--bs-warning-text-emphasis:#664d03;--bs-danger-text-emphasis:#58151c;--bs-light-text-emphasis:#495057;--bs-dark-text-emphasis:#495057;--bs-primary-bg-subtle:#cfe2ff;--bs-secondary-bg-subtle:#e2e3e5;--bs-success-bg-subtle:#d1e7dd;--bs-info-bg-subtle:#cff4fc;--bs-warning-bg-subtle:#fff3cd;--bs-danger-bg-subtle:#f8d7da;--bs-light-bg-subtle:#fcfcfd;--bs-dark-bg-subtle:#ced4da;--bs-primary-border-subtle:#9ec5fe;--bs-secondary-border-subtle:#c4c8cb;--bs-success-border-subtle:#a3cfbb;--bs-info-border-subtle:#9eeaf9;--bs-warning-border-subtle:#ffe69c;--bs-danger-border-subtle:#f1aeb5;--bs-light-border-subtle:#e9ecef;--bs-dark-border-subtle:#adb5bd;--bs-white-rgb:255,255,255;--bs-black-rgb:0,0,0;--bs-font-sans-serif:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans","Liberation Sans",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--bs-font-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--bs-gradient:linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));--bs-body-font-family:var(--bs-font-sans-serif);--bs-body-font-size:1rem;--bs-body-font-weight:400;--bs-body-line-height:1.5;--bs-body-color:#212529;--bs-body-color-rgb:33,37,41;--bs-body-bg:#fff;--bs-body-bg-rgb:255,255,255;--bs-emphasis-color:#000;--bs-emphasis-color-rgb:0,0,0;--bs-secondary-color:rgba(33, 37, 41, 0.75);--bs-secondary-color-rgb:33,37,41;--bs-secondary-bg:#e9ecef;--bs-secondary-bg-rgb:233,236,239;--bs-tertiary-color:rgba(33, 37, 41, 0.5);--bs-tertiary-color-rgb:33,37,41;--bs-tertiary-bg:#f8f9fa;--bs-tertiary-bg-rgb:248,249,250;--bs-heading-color:inherit;--bs-link-color:#0d6efd;--bs-link-color-rgb:13,110,253;--bs-link-decoration:underline;--bs-link-hover-color:#0a58ca;--bs-link-hover-color-rgb:10,88,202;--bs-code-color:#d63384;--bs-highlight-bg:#fff3cd;--bs-border-width:1px;--bs-border-style:solid;--bs-border-color:#dee2e6;--bs-border-color-translucent:rgba(0, 0, 0, 0.175);--bs-border-radius:0.375rem;--bs-border-radius-sm:0.25rem;--bs-border-radius-lg:0.5rem;--bs-border-radius-xl:1rem;--bs-border-radius-xxl:2rem;--bs-border-radius-2xl:var(--bs-border-radius-xxl);--bs-border-radius-pill:50rem;--bs-box-shadow:0 0.5rem 1rem rgba(0, 0, 0, 0.15);--bs-box-shadow-sm:0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);--bs-box-shadow-lg:0 1rem 3rem rgba(0, 0, 0, 0.175);--bs-box-shadow-inset:inset 0 1px 2px rgba(0, 0, 0, 0.075);--bs-focus-ring-width:0.25rem;--bs-focus-ring-opacity:0.25;--bs-focus-ring-color:rgba(13, 110, 253, 0.25);--bs-form-valid-color:#198754;--bs-form-valid-border-color:#198754;--bs-form-invalid-color:#dc3545;--bs-form-invalid-border-color:#dc3545}*,::after,::before{box-sizing:border-box}body{margin:0;font-family:var(--bs-body-font-family);font-size:var(--bs-body-font-size);font-weight:var(--bs-body-font-weight);line-height:var(--bs-body-line-height);color:var(--bs-body-color);text-align:var(--bs-body-text-align);background-color:var(--bs-body-bg);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}.h4,h4{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2;color:var(--bs-heading-color)}.h4,h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){.h4,h4{font-size:1.5rem}}a{color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));text-decoration:underline}a:hover{--bs-link-color-rgb:var(--bs-link-hover-color-rgb)}a:not([href]):not([class]),a:not([href]):not([class]):hover{color:inherit;text-decoration:none}pre{font-family:var(--bs-font-monospace);font-size:1em}pre{display:block;margin-top:0;margin-bottom:1rem;overflow:auto;font-size:.875em}table{caption-side:bottom;border-collapse:collapse}th{text-align:inherit;text-align:-webkit-match-parent}tbody,td,tfoot,th,thead,tr{border-color:inherit;border-style:solid;border-width:0}label{display:inline-block}button{border-radius:0}button:focus:not(:focus-visible){outline:0}button,input,optgroup,select,textarea{margin:0;font-family:inherit;font-size:inherit;line-height:inherit}button,select{text-transform:none}[role=button]{cursor:pointer}select{word-wrap:normal}[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled),button:not(:disabled){cursor:pointer}::-moz-focus-inner{padding:0;border-style:none}textarea{resize:vertical}.container{--bs-gutter-x:1.5rem;--bs-gutter-y:0;width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5);margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}@media (min-width:1400px){.container{max-width:1320px}}:root{--bs-breakpoint-xs:0;--bs-breakpoint-sm:576px;--bs-breakpoint-md:768px;--bs-breakpoint-lg:992px;--bs-breakpoint-xl:1200px;--bs-breakpoint-xxl:1400px}.row{--bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-.5 * var(--bs-gutter-x));margin-left:calc(-.5 * var(--bs-gutter-x))}.row>*{flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5);margin-top:var(--bs-gutter-y)}.col-1{flex:0 0 auto;width:8.33333333%}.col-2{flex:0 0 auto;width:16.66666667%}.col-3{flex:0 0 auto;width:25%}.col-4{flex:0 0 auto;width:33.33333333%}.col-5{flex:0 0 auto;width:41.66666667%}.col-6{flex:0 0 auto;width:50%}.col-7{flex:0 0 auto;width:58.33333333%}.col-8{flex:0 0 auto;width:66.66666667%}.col-9{flex:0 0 auto;width:75%}.col-10{flex:0 0 auto;width:83.33333333%}.col-11{flex:0 0 auto;width:91.66666667%}.col-12{flex:0 0 auto;width:100%}.table{--bs-table-color-type:initial;--bs-table-bg-type:initial;--bs-table-color-state:initial;--bs-table-bg-state:initial;--bs-table-color:var(--bs-body-color);--bs-table-bg:var(--bs-body-bg);--bs-table-border-color:var(--bs-border-color);--bs-table-accent-bg:transparent;--bs-table-striped-color:var(--bs-body-color);--bs-table-striped-bg:rgba(0, 0, 0, 0.05);--bs-table-active-color:var(--bs-body-color);--bs-table-active-bg:rgba(0, 0, 0, 0.1);--bs-table-hover-color:var(--bs-body-color);--bs-table-hover-bg:rgba(0, 0, 0, 0.075);width:100%;margin-bottom:1rem;vertical-align:top;border-color:var(--bs-table-border-color)}.table>:not(caption)>*>*{padding:.5rem .5rem;color:var(--bs-table-color-state,var(--bs-table-color-type,var(--bs-table-color)));background-color:var(--bs-table-bg);border-bottom-width:var(--bs-border-width);box-shadow:inset 0 0 0 9999px var(--bs-table-bg-state,var(--bs-table-bg-type,var(--bs-table-accent-bg)))}.table>tbody{vertical-align:inherit}.table>thead{vertical-align:bottom}.table-sm>:not(caption)>*>*{padding:.25rem .25rem}.table-bordered>:not(caption)>*{border-width:var(--bs-border-width) 0}.table-bordered>:not(caption)>*>*{border-width:0 var(--bs-border-width)}.form-control{display:block;width:100%;padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:var(--bs-body-color);-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--bs-body-bg);background-clip:padding-box;border:var(--bs-border-width) solid var(--bs-border-color);border-radius:var(--bs-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-control{transition:none}}.form-control[type=file]{overflow:hidden}.form-control[type=file]:not(:disabled):not([readonly]){cursor:pointer}.form-control:focus{color:var(--bs-body-color);background-color:var(--bs-body-bg);border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-control::placeholder{color:var(--bs-secondary-color);opacity:1}.form-control::file-selector-button{padding:.375rem .75rem;margin:-.375rem -.75rem;-webkit-margin-end:.75rem;margin-inline-end:.75rem;color:var(--bs-body-color);background-color:var(--bs-tertiary-bg);pointer-events:none;border-color:inherit;border-style:solid;border-width:0;border-inline-end-width:var(--bs-border-width);border-radius:0;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-control::-webkit-file-upload-button{-webkit-transition:none;transition:none}.form-control::file-selector-button{transition:none}}.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button{background-color:var(--bs-secondary-bg)}.form-control:hover:not(:disabled):not([readonly])::file-selector-button{background-color:var(--bs-secondary-bg)}textarea.form-control{min-height:calc(1.5em + .75rem + calc(var(--bs-border-width) * 2))}.form-select{--bs-form-select-bg-img:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");display:block;width:100%;padding:.375rem 2.25rem .375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:var(--bs-body-color);appearance:none;background-color:var(--bs-body-bg);background-image:var(--bs-form-select-bg-img),var(--bs-form-select-bg-icon,none);background-repeat:no-repeat;background-position:right .75rem center;background-size:16px 12px;border:var(--bs-border-width) solid var(--bs-border-color);border-radius:var(--bs-border-radius);transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.form-select{transition:none}}.form-select:focus{border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-check{display:block;min-height:1.5rem;padding-left:1.5em;margin-bottom:.125rem}.form-check .form-check-input{float:left;margin-left:-1.5em}.form-check-input{--bs-form-check-bg:var(--bs-body-bg);width:1em;height:1em;margin-top:.25em;vertical-align:top;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:var(--bs-form-check-bg);background-image:var(--bs-form-check-bg-image);background-repeat:no-repeat;background-position:center;background-size:contain;border:var(--bs-border-width) solid var(--bs-border-color);-webkit-print-color-adjust:exact;color-adjust:exact;print-color-adjust:exact}.form-check-input[type=radio]{border-radius:50%}.form-check-input:active{filter:brightness(90%)}.form-check-input:focus{border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.form-check-input:checked{background-color:#0d6efd;border-color:#0d6efd}.form-check-input:checked[type=radio]{--bs-form-check-bg-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e")}.form-check-inline{display:inline-block;margin-right:1rem}.input-group{position:relative;display:flex;flex-wrap:wrap;align-items:stretch;width:100%}.input-group>.form-control,.input-group>.form-floating,.input-group>.form-select{position:relative;flex:1 1 auto;width:1%;min-width:0}.input-group>.form-control:focus,.input-group>.form-floating:focus-within,.input-group>.form-select:focus{z-index:5}.input-group .btn{position:relative;z-index:2}.input-group .btn:focus{z-index:5}.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3),.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-control,.input-group:not(.has-validation)>.form-floating:not(:last-child)>.form-select,.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(.form-floating){border-top-right-radius:0;border-bottom-right-radius:0}.input-group>:not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){margin-left:calc(var(--bs-border-width) * -1);border-top-left-radius:0;border-bottom-left-radius:0}.input-group>.form-floating:not(:first-child)>.form-control,.input-group>.form-floating:not(:first-child)>.form-select{border-top-left-radius:0;border-bottom-left-radius:0}.form-check-inline .form-check-input~.valid-feedback{margin-left:.5em}.input-group>.form-floating:not(:focus-within).is-valid,.input-group>.form-select:not(:focus).is-valid{z-index:3}.form-check-inline .form-check-input~.invalid-feedback{margin-left:.5em}.input-group>.form-floating:not(:focus-within).is-invalid,.input-group>.form-select:not(:focus).is-invalid{z-index:4}.btn{--bs-btn-padding-x:0.75rem;--bs-btn-padding-y:0.375rem;--bs-btn-font-size:1rem;--bs-btn-font-weight:400;--bs-btn-line-height:1.5;--bs-btn-color:var(--bs-body-color);--bs-btn-bg:transparent;--bs-btn-border-width:var(--bs-border-width);--bs-btn-border-color:transparent;--bs-btn-border-radius:var(--bs-border-radius);--bs-btn-hover-border-color:transparent;--bs-btn-box-shadow:inset 0 1px 0 rgba(255, 255, 255, 0.15),0 1px 1px rgba(0, 0, 0, 0.075);--bs-btn-disabled-opacity:0.65;--bs-btn-focus-box-shadow:0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);display:inline-block;padding:var(--bs-btn-padding-y) var(--bs-btn-padding-x);font-family:var(--bs-btn-font-family);font-size:var(--bs-btn-font-size);font-weight:var(--bs-btn-font-weight);line-height:var(--bs-btn-line-height);color:var(--bs-btn-color);text-align:center;text-decoration:none;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;border:var(--bs-btn-border-width) solid var(--bs-btn-border-color);border-radius:var(--bs-btn-border-radius);background-color:var(--bs-btn-bg);transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}@media (prefers-reduced-motion:reduce){.btn{transition:none}}.btn:hover{color:var(--bs-btn-hover-color);background-color:var(--bs-btn-hover-bg);border-color:var(--bs-btn-hover-border-color)}.btn:focus-visible{color:var(--bs-btn-hover-color);background-color:var(--bs-btn-hover-bg);border-color:var(--bs-btn-hover-border-color);outline:0;box-shadow:var(--bs-btn-focus-box-shadow)}.btn-primary{--bs-btn-color:#fff;--bs-btn-bg:#0d6efd;--bs-btn-border-color:#0d6efd;--bs-btn-hover-color:#fff;--bs-btn-hover-bg:#0b5ed7;--bs-btn-hover-border-color:#0a58ca;--bs-btn-focus-shadow-rgb:49,132,253;--bs-btn-active-color:#fff;--bs-btn-active-bg:#0a58ca;--bs-btn-active-border-color:#0a53be;--bs-btn-active-shadow:inset 0 3px 5px rgba(0, 0, 0, 0.125);--bs-btn-disabled-color:#fff;--bs-btn-disabled-bg:#0d6efd;--bs-btn-disabled-border-color:#0d6efd}.fade{transition:opacity .15s linear}@media (prefers-reduced-motion:reduce){.fade{transition:none}}.fade:not(.show){opacity:0}.nav{--bs-nav-link-padding-x:1rem;--bs-nav-link-padding-y:0.5rem;--bs-nav-link-color:var(--bs-link-color);--bs-nav-link-hover-color:var(--bs-link-hover-color);--bs-nav-link-disabled-color:var(--bs-secondary-color);display:flex;flex-wrap:wrap;padding-left:0;margin-bottom:0;list-style:none}.nav-link{display:block;padding:var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);font-size:var(--bs-nav-link-font-size);font-weight:var(--bs-nav-link-font-weight);color:var(--bs-nav-link-color);text-decoration:none;background:0 0;border:0;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out}@media (prefers-reduced-motion:reduce){.nav-link{transition:none}}.nav-link:focus,.nav-link:hover{color:var(--bs-nav-link-hover-color)}.nav-link:focus-visible{outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}.nav-link.disabled,.nav-link:disabled{color:var(--bs-nav-link-disabled-color);pointer-events:none;cursor:default}.nav-tabs{--bs-nav-tabs-border-width:var(--bs-border-width);--bs-nav-tabs-border-color:var(--bs-border-color);--bs-nav-tabs-border-radius:var(--bs-border-radius);--bs-nav-tabs-link-hover-border-color:var(--bs-secondary-bg) var(--bs-secondary-bg) var(--bs-border-color);--bs-nav-tabs-link-active-color:var(--bs-emphasis-color);--bs-nav-tabs-link-active-bg:var(--bs-body-bg);--bs-nav-tabs-link-active-border-color:var(--bs-border-color) var(--bs-border-color) var(--bs-body-bg);border-bottom:var(--bs-nav-tabs-border-width) solid var(--bs-nav-tabs-border-color)}.nav-tabs .nav-link{margin-bottom:calc(-1 * var(--bs-nav-tabs-border-width));border:var(--bs-nav-tabs-border-width) solid transparent;border-top-left-radius:var(--bs-nav-tabs-border-radius);border-top-right-radius:var(--bs-nav-tabs-border-radius)}.nav-tabs .nav-link:focus,.nav-tabs .nav-link:hover{isolation:isolate;border-color:var(--bs-nav-tabs-link-hover-border-color)}.nav-tabs .nav-item.show .nav-link,.nav-tabs .nav-link.active{color:var(--bs-nav-tabs-link-active-color);background-color:var(--bs-nav-tabs-link-active-bg);border-color:var(--bs-nav-tabs-link-active-border-color)}.nav-tabs .dropdown-menu{margin-top:calc(-1 * var(--bs-nav-tabs-border-width));border-top-left-radius:0;border-top-right-radius:0}.tab-content>.tab-pane{display:none}.tab-content>.active{display:block}.toast{--bs-toast-zindex:1090;--bs-toast-padding-x:0.75rem;--bs-toast-padding-y:0.5rem;--bs-toast-spacing:1.5rem;--bs-toast-max-width:350px;--bs-toast-font-size:0.875rem;--bs-toast-bg:rgba(var(--bs-body-bg-rgb), 0.85);--bs-toast-border-width:var(--bs-border-width);--bs-toast-border-color:var(--bs-border-color-translucent);--bs-toast-border-radius:var(--bs-border-radius);--bs-toast-box-shadow:var(--bs-box-shadow);--bs-toast-header-color:var(--bs-secondary-color);--bs-toast-header-bg:rgba(var(--bs-body-bg-rgb), 0.85);--bs-toast-header-border-color:var(--bs-border-color-translucent);width:var(--bs-toast-max-width);max-width:100%;font-size:var(--bs-toast-font-size);color:var(--bs-toast-color);pointer-events:auto;background-color:var(--bs-toast-bg);background-clip:padding-box;border:var(--bs-toast-border-width) solid var(--bs-toast-border-color);box-shadow:var(--bs-toast-box-shadow);border-radius:var(--bs-toast-border-radius)}.toast.showing{opacity:0}.toast:not(.show){display:none}.toast-container{--bs-toast-zindex:1090;position:absolute;z-index:var(--bs-toast-zindex);width:-webkit-max-content;width:-moz-max-content;width:max-content;max-width:100%;pointer-events:none}.toast-container>:not(:last-child){margin-bottom:var(--bs-toast-spacing)}.toast-header{display:flex;align-items:center;padding:var(--bs-toast-padding-y) var(--bs-toast-padding-x);color:var(--bs-toast-header-color);background-color:var(--bs-toast-header-bg);background-clip:padding-box;border-bottom:var(--bs-toast-border-width) solid var(--bs-toast-header-border-color);border-top-left-radius:calc(var(--bs-toast-border-radius) - var(--bs-toast-border-width));border-top-right-radius:calc(var(--bs-toast-border-radius) - var(--bs-toast-border-width))}.toast-header .btn-close{margin-right:calc(-.5 * var(--bs-toast-padding-x));margin-left:var(--bs-toast-padding-x)}.toast-body{padding:var(--bs-toast-padding-x);word-wrap:break-word}.position-static{position:static!important}.position-relative{position:relative!important}.position-absolute{position:absolute!important}.position-fixed{position:fixed!important}.position-sticky{position:-webkit-sticky!important;position:sticky!important}.top-0{top:0!important}.top-50{top:50%!important}.top-100{top:100%!important}.bottom-0{bottom:0!important}.bottom-50{bottom:50%!important}.bottom-100{bottom:100%!important}.start-0{left:0!important}.start-50{left:50%!important}.start-100{left:100%!important}.end-0{right:0!important}.end-50{right:50%!important}.end-100{right:100%!important}
+  </style>
+  <style type="text/css">
+    .op-container,
+    .dispaly-area {
+        /* background-color: #8882; */
+        padding: 10px;
+        margin: 20px;
+        min-width: 720px;
+    }
+
+    .dispaly-area {
+        height: 400px;
+        border: 3px solid #8882;
+        background-color: #fff;
+        overflow: auto;
+    }
+
+    .input-group {
+        display: flex;
+        border: #aaa solid 1px;
+        border-radius: 5px;
+    }
+
+    .input-group input {
+        flex-grow: 10 !important;
+    }
+
+    #btn-send {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .param-container {
+        padding: 10px;
+        min-height: 200px;
+    }
+
+    .tab-pane-box {
+        margin: 5px;
+    }
+
+
+    td:last-of-type {
+        text-align: center;
+    }
+
+    td a,
+    td button {
+        color: white !important;
+        width: 80%;
+    }
+    td a:hover {
+        color: red !important;
+    }
+
+    .add-box {
+        display: flex;
+        justify-content: center;
+    }
+
+    .add-box .btn {
+        width: 40%;
+        color: white !important;
+    }
+
+    .add-box:hover .btn{
+        color: green !important;
+        background-color: #0d6efd22;
+    }
+
+    .radio-box {
+        padding: 8px 0;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    h4 {
+        color: #0d6efd33;
+        margin: 0 20px -20px;
+    }
+  </style>
+  <script type="text/javascript">
+    // bootstrap.js删减
+    !function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t(require("@popperjs/core")):"function"==typeof define&&define.amd?define(["@popperjs/core"],t):(e="undefined"!=typeof globalThis?globalThis:e||self).bootstrap=t(e.Popper)}(this,function(x){"use strict";const n=new Map,r={set(e,t,r){n.has(e)||n.set(e,new Map);e=n.get(e);e.has(t)||0===e.size?e.set(t,r):console.error(`Bootstrap doesn't allow more than one instance per element. Bound instance: ${Array.from(e.keys())[0]}.`)},get(e,t){return n.has(e)&&n.get(e).get(t)||null},remove(e,t){var r;n.has(e)&&((r=n.get(e)).delete(t),0===r.size)&&n.delete(e)}},i=1e3,o="transitionend",s=e=>e=e&&window.CSS&&window.CSS.escape?e.replace(/#([^\s"#']+)/g,(e,t)=>"#"+CSS.escape(t)):e,a=e=>!(!e||"object"!=typeof e)&&void 0!==(e=void 0!==e.jquery?e[0]:e).nodeType,l=e=>a(e)?e.jquery?e[0]:e:"string"==typeof e&&0<e.length?document.querySelector(s(e)):null,c=(e,t=[],r=e)=>"function"==typeof e?e(...t):r,u=(r,n,e=!0)=>{if(e){e=(e=>{if(!e)return 0;let{transitionDuration:t,transitionDelay:r}=window.getComputedStyle(e);var e=Number.parseFloat(t),n=Number.parseFloat(r);return e||n?(t=t.split(",")[0],r=r.split(",")[0],(Number.parseFloat(t)+Number.parseFloat(r))*i):0})(n)+5;let t=!1;const s=({target:e})=>{e===n&&(t=!0,n.removeEventListener(o,s),c(r))};n.addEventListener(o,s),setTimeout(()=>{t||n.dispatchEvent(new Event(o))},e)}else c(r)},b=/[^.]*(?=\..*)\.|.*/,t=/\..*/,A=/::\d+$/,d={};let g=1;const m={mouseenter:"mouseover",mouseleave:"mouseout"},h=new Set(["click","dblclick","mouseup","mousedown","contextmenu","mousewheel","DOMMouseScroll","mouseover","mouseout","mousemove","selectstart","selectend","keydown","keypress","keyup","orientationchange","touchstart","touchmove","touchend","touchcancel","pointerdown","pointermove","pointerup","pointerleave","pointercancel","gesturestart","gesturechange","gestureend","focus","blur","change","reset","select","submit","focusin","focusout","load","unload","beforeunload","resize","move","DOMContentLoaded","readystatechange","error","abort","scroll"]);function p(e,t){return t&&t+"::"+g++||e.uidEvent||g++}function E(e){var t=p(e);return e.uidEvent=t,d[t]=d[t]||{},d[t]}function _(e,t,r=null){return Object.values(e).find(e=>e.callable===t&&e.delegationSelector===r)}function w(e,t,r){var n="string"==typeof t,t=!n&&t||r;let s=v(e);return[n,t,s=h.has(s)?s:e]}function f(n,s,i,o,a){if("string"==typeof s&&n){let[e,t,r]=w(s,i,o);s in m&&(t=(l=t,function(e){if(!e.relatedTarget||e.relatedTarget!==e.delegateTarget&&!e.delegateTarget.contains(e.relatedTarget))return l.call(this,e)}));var l,c,u,d,g,h,o=E(n),o=o[r]||(o[r]={}),f=_(o,t,e?i:null);f?f.oneOff=f.oneOff&&a:(f=p(t,s.replace(b,"")),(s=e?(d=n,g=i,h=t,function t(r){var n=d.querySelectorAll(g);for(let e=r["target"];e&&e!==this;e=e.parentNode)for(const s of n)if(s===e)return C(r,{delegateTarget:e}),t.oneOff&&y.off(d,r.type,g,h),h.apply(e,[r])}):(c=n,u=t,function e(t){return C(t,{delegateTarget:c}),e.oneOff&&y.off(c,t.type,u),u.apply(c,[t])})).delegationSelector=e?i:null,s.callable=t,s.oneOff=a,o[s.uidEvent=f]=s,n.addEventListener(r,s,e))}}function T(e,t,r,n,s){n=_(t[r],n,s);n&&(e.removeEventListener(r,n,Boolean(s)),delete t[r][n.uidEvent])}function v(e){return e=e.replace(t,""),m[e]||e}const y={on(e,t,r,n){f(e,t,r,n,!1)},one(e,t,r,n){f(e,t,r,n,!0)},off(e,t,r,n){if("string"==typeof t&&e){var s,i,[n,o,a]=w(t,r,n),l=a!==t,c=E(e),u=c[a]||{},d=t.startsWith(".");if(void 0!==o)return Object.keys(u).length?void T(e,c,a,o,n?r:null):void 0;if(d)for(const y of Object.keys(c)){h=g=_=p=m=b=f=void 0;var g,h,f=e,b=c,m=y,p=t.slice(1),_=b[m]||{};for([g,h]of Object.entries(_))g.includes(p)&&T(f,b,m,h.callable,h.delegationSelector)}for([s,i]of Object.entries(u)){var v=s.replace(A,"");l&&!t.includes(v)||T(e,c,a,i.callable,i.delegationSelector)}}},trigger(e,t,r){return"string"==typeof t&&e?(v(t),t=C(new Event(t,{bubbles:!0,cancelable:!0}),r),e.dispatchEvent(t),t):null}};function C(t,e={}){for(const[r,n]of Object.entries(e))try{t[r]=n}catch(e){Object.defineProperty(t,r,{configurable:!0,get(){return n}})}return t}function O(t){if("true"===t)return!0;if("false"===t)return!1;if(t===Number(t).toString())return Number(t);if(""===t||"null"===t)return null;if("string"!=typeof t)return t;try{return JSON.parse(decodeURIComponent(t))}catch(e){return t}}function S(e){return e.replace(/[A-Z]/g,e=>"-"+e.toLowerCase())}const L={setDataAttribute(e,t,r){e.setAttribute("data-bs-"+S(t),r)},removeDataAttribute(e,t){e.removeAttribute("data-bs-"+S(t))},getDataAttributes(t){if(!t)return{};var r={};for(const n of Object.keys(t.dataset).filter(e=>e.startsWith("bs")&&!e.startsWith("bsConfig"))){let e=n.replace(/^bs/,"");r[e=e.charAt(0).toLowerCase()+e.slice(1,e.length)]=O(t.dataset[n])}return r},getDataAttribute(e,t){return O(e.getAttribute("data-bs-"+S(t)))}};class e{static get Default(){return{}}static get DefaultType(){return{}}static get NAME(){throw new Error('You have to implement the static method "NAME", for each component!')}_getConfig(e){return e=this._mergeConfigObj(e),e=this._configAfterMerge(e),this._typeCheckConfig(e),e}_configAfterMerge(e){return e}_mergeConfigObj(e,t){var r=a(t)?L.getDataAttribute(t,"config"):{};return{...this.constructor.Default,..."object"==typeof r?r:{},...a(t)?L.getDataAttributes(t):{},..."object"==typeof e?e:{}}}_typeCheckConfig(e,t=this.constructor.DefaultType){for(var[r,n]of Object.entries(t)){var s=e[r],s=a(s)?"element":null==(s=s)?""+s:Object.prototype.toString.call(s).match(/\s([a-z]+)/i)[1].toLowerCase();if(!new RegExp(n).test(s))throw new TypeError(`${this.constructor.NAME.toUpperCase()}: Option "${r}" provided type "${s}" but expected type "${n}".`)}}}class N extends e{constructor(e,t){super(),(e=l(e))&&(this._element=e,this._config=this._getConfig(t),r.set(this._element,this.constructor.DATA_KEY,this))}dispose(){r.remove(this._element,this.constructor.DATA_KEY),y.off(this._element,this.constructor.EVENT_KEY);for(const e of Object.getOwnPropertyNames(this))this[e]=null}_queueCallback(e,t,r=!0){u(e,t,r)}_getConfig(e){return e=this._mergeConfigObj(e,this._element),e=this._configAfterMerge(e),this._typeCheckConfig(e),e}static getInstance(e){return r.get(l(e),this.DATA_KEY)}static getOrCreateInstance(e,t={}){return this.getInstance(e)||new this(e,"object"==typeof t?t:null)}static get VERSION(){return"5.3.1"}static get DATA_KEY(){return"bs."+this.NAME}static get EVENT_KEY(){return"."+this.DATA_KEY}static eventName(e){return""+e+this.EVENT_KEY}}const j=t=>{let r=t.getAttribute("data-bs-target");if(!r||"#"===r){let e=t.getAttribute("href");if(!e||!e.includes("#")&&!e.startsWith("."))return null;e.includes("#")&&!e.startsWith("#")&&(e="#"+e.split("#")[1]),r=e&&"#"!==e?e.trim():null}return s(r)},D={find(e,t=document.documentElement){return[].concat(...Element.prototype.querySelectorAll.call(t,e))},findOne(e,t=document.documentElement){return Element.prototype.querySelector.call(t,e)},children(e,t){return[].concat(...e.children).filter(e=>e.matches(t))},getSelectorFromElement(e){e=j(e);return e&&D.findOne(e)?e:null},getElementFromSelector(e){e=j(e);return e?D.findOne(e):null}};const k="active";var K='[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';k,k,k;class M extends N{constructor(e){super(e),this._parent=this._element.closest('.list-group, .nav, [role="tablist"]'),this._parent}static get NAME(){return"tab"}show(){var e,t,r=this._element;this._elemIsActive(r)||(t=(e=this._getActiveElem())?y.trigger(e,"hide.bs.tab",{relatedTarget:r}):null,y.trigger(r,"show.bs.tab",{relatedTarget:e}).defaultPrevented)||t&&t.defaultPrevented||(this._deactivate(e,r),this._activate(r,e))}_activate(e,t){e&&(e.classList.add(k),this._activate(D.getElementFromSelector(e)),this._queueCallback(()=>{"tab"!==e.getAttribute("role")?e.classList.add("show"):(e.removeAttribute("tabindex"),e.setAttribute("aria-selected",!0),y.trigger(e,"shown.bs.tab",{relatedTarget:t}))},e,e.classList.contains("fade")))}_deactivate(e,t){e&&(e.classList.remove(k),e.blur(),this._deactivate(D.getElementFromSelector(e)),this._queueCallback(()=>{"tab"!==e.getAttribute("role")?e.classList.remove("show"):(e.setAttribute("aria-selected",!1),e.setAttribute("tabindex","-1"),y.trigger(e,"hidden.bs.tab",{relatedTarget:t}))},e,e.classList.contains("fade")))}_getChildren(){return D.find('.nav-link:not(.dropdown-toggle), .list-group-item:not(.dropdown-toggle), [role="tab"]:not(.dropdown-toggle), [data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]',this._parent)}_getActiveElem(){return this._getChildren().find(e=>this._elemIsActive(e))||null}_elemIsActive(e){return e.classList.contains(k)}}y.on(document,"click.bs.tab",K,function(e){["A","AREA"].includes(this.tagName)&&e.preventDefault(),!(e=this)||e.nodeType!==Node.ELEMENT_NODE||e.classList.contains("disabled")||(void 0!==e.disabled?e.disabled:e.hasAttribute("disabled")&&"false"!==e.getAttribute("disabled"))||M.getOrCreateInstance(this).show()}),y.on(window,"load.bs.tab",()=>{for(const e of D.find('.active[data-bs-toggle="tab"], .active[data-bs-toggle="pill"], .active[data-bs-toggle="list"]'))M.getOrCreateInstance(e)});const I="show",q="showing",Y={animation:"boolean",autohide:"boolean",delay:"number"},F={animation:!0,autohide:!0,delay:5e3};return{Tab:M,Toast:class extends N{constructor(e,t){super(e,t),this._timeout=null,this._hasMouseInteraction=!1,this._hasKeyboardInteraction=!1}static get Default(){return F}static get DefaultType(){return Y}static get NAME(){return"toast"}show(){y.trigger(this._element,"show.bs.toast").defaultPrevented||(this._clearTimeout(),this._config.animation&&this._element.classList.add("fade"),this._element.classList.remove("hide"),this._element.offsetHeight,this._element.classList.add(I,q),this._queueCallback(()=>{this._element.classList.remove(q),y.trigger(this._element,"shown.bs.toast"),this._maybeScheduleHide()},this._element,this._config.animation))}hide(){this.isShown()&&!y.trigger(this._element,"hide.bs.toast").defaultPrevented&&(this._element.classList.add(q),this._queueCallback(()=>{this._element.classList.add("hide"),this._element.classList.remove(q,I),y.trigger(this._element,"hidden.bs.toast")},this._element,this._config.animation))}isShown(){return this._element.classList.contains(I)}_maybeScheduleHide(){!this._config.autohide||this._hasMouseInteraction||this._hasKeyboardInteraction||(this._timeout=setTimeout(()=>{this.hide()},this._config.delay))}_clearTimeout(){clearTimeout(this._timeout),this._timeout=null}}}});
+  </script>
+  
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row op-container ">
+      <div class="col-10 aaa">
+        <div class="input-group">
+          <select id="method" class="form-select">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+            <option value="PATCH">PATCH</option>
+            <option value="HEAD">HEAD</option>
+            <option value="OPTIONS">OPTIONS</option>
+          </select>
+          <input type="text" class="form-control" id="url">
+        </div>
+      </div>
+      <!-- <div class="col-9">
+                
+            </div> -->
+      <div class="col-2">
+        <button class="btn btn-primary" id="btn-send">发送</button>
+      </div>
+    </div>
+
+    <div class="param-container">
+      <ul class="nav nav-tabs" id="mytab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="header-tab" data-bs-toggle="tab" data-bs-target="#header-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Headers</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="body-tab" data-bs-toggle="tab" data-bs-target="#body-tab-pane" type="button" role="tab" aria-controls="body-tab-pane" aria-selected="false">Body</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="mytabcontent">
+        <div class="tab-pane fade " id="header-tab-pane" role="tabpanel" aria-labelledby="header-tab" tabindex="0">
+          <div class="tab-pane-box">
+            <table class="table table-bordered" id="table-headers">
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+                <td></td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" placeholder="Key">
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Value">
+                </td>
+                <td><button class="btn">占位</button></td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="text" class="form-control" placeholder="Key">
+                </td>
+                <td>
+                  <input type="text" class="form-control" placeholder="Value">
+                </td>
+                <td>
+                  <a href="javascript:;" class="btn">删除</a>
+                </td>
+              </tr>
+            </table>
+
+            <div class="add-box">
+              <a href="javascript:;" class="btn add-item" id="add-item-1">添加</a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade show active" id="body-tab-pane" role="tabpanel" aria-labelledby="body-tab" tabindex="0">
+          <div class="tab-pane-box">
+            <div class="radio-box">
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" id="x-www-form-urlencoded" name="data-type" checked="true" value="">
+                <label class="form-check-label" for="x-www-form-urlencoded">x-www-form-urlencoded</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" id="form-data" name="data-type" value="">
+                <label class="form-check-label" for="form-data">form-data</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" id="json" name="data-type" value="">
+                <label class="form-check-label" for="json">JSON</label>
+              </div>
+            </div>
+            <div id="x-www-form-urlencoded-container" class="data-container">
+              <table class="table table-bordered" id="table-x-www-form-urlencoded">
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Key">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Value">
+                  </td>
+                  <td><button class="btn">占位</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Key">
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Value">
+                  </td>
+                  <td>
+                    <a href="javascript:;" class="btn">删除</a>
+                  </td>
+                </tr>
+              </table>
+  
+              <div class="add-box">
+                <a href="javascript:;" class="btn add-item" id="add-item-2">添加</a>
+              </div>
+            </div>
+            <div id="form-data-container" class="data-container hidden">
+              <table class="table table-bordered" id="table-form-data">
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Key">
+                      <select class="form-select">
+                        <option value="text">Text</option>
+                        <option value="file">File</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Value">
+                  </td>
+                  <td><button class="btn">占位</button></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Key">
+                      <select class="form-select">
+                        <option value="text">Text</option>
+                        <option value="file">File</option>
+                      </select>
+                    </div>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Value">
+                  </td>
+                  <td>
+                    <a href="javascript:;" class="btn">删除</a>
+                  </td>
+                </tr>
+              </table>
+  
+              <div class="add-box">
+                <a href="javascript:;" class="btn add-item" id="add-item-3">添加</a>
+              </div>
+            </div>
+            <div id="json-container" class="data-container hidden">
+              <textarea id="json-text" class="form-control" rows="10" placeholder="json string here..."></textarea>
+              <div class="toast-container position-fixed bottom-50 end-50">
+                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                  
+                  <div class="toast-body" style="background-color: #00000088; color: red; text-align: center;">
+                    JSON数据格式有误
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h4>响应结果</h4>
+    <pre class="dispaly-area" id="display-area">
+         
+    </pre>
+
+    
+  </div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+const displayEle = document.getElementById("display-area")
+const methodSelect = document.getElementById("method")
+const sendBtn = document.getElementById("btn-send")
+const urlInput = document.getElementById("url")
+const addBtns = document.querySelectorAll(".add-item")
+const tables = document.querySelectorAll("table")
+const radios = document.querySelectorAll("[type=radio]")
+const containers = document.querySelectorAll(".data-container")
+
+const xhr = new XMLHttpRequest()
+
+let dataType = ''
+
+const toast = new bootstrap.Toast(document.getElementById("liveToast"))
+
+
+// Headers Body添加按钮事件绑定
+addBtns.forEach(btn => {
+  btn.onclick = function() {
+    // const tbody = this.parentNode.parentNode.firstElementChild.firstElementChild
+    const tbody = this.parentNode.parentNode.querySelector("table").firstElementChild
+    let html = ''
+    switch (this.id) {
+      case 'add-item-1':
+      case 'add-item-2':
+        html = `
+          <td>
+            <input type="text" class="form-control" placeholder="Key">
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Value">
+          </td>
+          <td>
+            <a href="javascript:;" class="btn">删除</a>
+          </td>
+        `
+        break;
+      case 'add-item-3':
+        html = `
+          <td>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Key">
+              <select class="form-select">
+                <option value="text">Text</option>
+                <option value="file">File</option>
+              </select>
+            </div>
+          </td>
+          <td>
+            <input type="text" class="form-control" placeholder="Value">
+          </td>
+          <td>
+            <a href="javascript:;" class="btn">删除</a>
+          </td>
+        `
+        break;
+    
+      default:
+        break;
+    }
+    const tr = document.createElement("tr")
+    tr.innerHTML = html
+    tbody.appendChild(tr)
+  }
+})
+
+// Headers Body 为表格中每一项删除事件绑定
+tables.forEach(table => {
+  table.onclick = (e) => {
+    if (e.target.tagName == 'A') {
+      e.target.parentNode.parentElement.remove()
+    }
+  }
+})
+
+
+
+// 单选框点击事件绑定
+radios.forEach(radio => {
+  radio.onclick = function() {
+    containers.forEach(c => {
+      c.classList.add("hidden")
+    })
+    const id = this.id + "-container"
+    document.getElementById(id).classList.remove("hidden")
+
+    dataType = this.id
+  }
+})
+// 每次加载默认选中第一个参数类型
+document.getElementById("x-www-form-urlencoded").click()
+
+// 设置Text/File选择时对应输入框类型改变
+document.getElementById("table-form-data").onchange = function(e) {
+  const target = e.target
+  if(target.tagName == 'SELECT') {
+    target.parentNode.parentNode.parentNode.children[1].firstElementChild.type = target.value
+  }
+}
+
+// 解析Headers里的数据
+function parseHeaders() {
+  const table = document.getElementById("table-headers")
+  const headers = {}
+  const trChildren = table.firstElementChild.children
+  
+  for (let index = 1; index < trChildren.length; index++) {
+    const tr = trChildren[index]
+    const key = tr.cells[0].firstElementChild.value
+    const value = tr.cells[1].firstElementChild.value
+
+    if (key.trim() != '' && value.trim() != '') {
+      headers[key.trim()] = value.trim()
+    }
+  }
+  return headers
+}
+
+
+
+// 解析x-www-form-urlencoded格式的数据
+function parseFormUrlEncodedData() {
+  const table = document.getElementById("table-x-www-form-urlencoded")
+  const data = []
+  const trChildren = table.firstElementChild.children
+  
+  for (let index = 1; index < trChildren.length; index++) {
+    const tr = trChildren[index]
+    const key = tr.cells[0].firstElementChild.value
+    const value = tr.cells[1].firstElementChild.value
+
+    if (key.trim() != '') {
+      data.push(`${key.trim()}=${value.trim()}`)
+    }
+  }
+  return encodeURI(data.join("&"))
+}
+
+// 解析form-data格式的数据
+function parseFormData() {
+  const table = document.getElementById("table-form-data")
+  const formData = new FormData()
+  const trChildren = table.firstElementChild.children
+  
+  for (let index = 1; index < trChildren.length; index++) {
+    const tr = trChildren[index]
+    const key = tr.cells[0].firstElementChild.firstElementChild.value
+    const type = tr.cells[0].firstElementChild.lastElementChild.value
+    let value = null
+    if(type == 'text') {
+      value = tr.cells[1].firstElementChild.value
+      value = value.trim()
+    } else {
+      const input = tr.cells[1].firstElementChild
+      if (input.type == 'file' && input.files.length > 0) {
+        value = input.files[0]
+      }
+    }
+    
+    if (key.trim() != '') {
+      formData.append(key.trim(), value)
+    }
+  }
+
+  return formData
+}
+
+// 设置请求头
+function setXHRHeaders() {
+  const headers = parseHeaders()
+  for (const key in headers) {
+    xhr.setRequestHeader(key, headers[key])
+  }
+
+  if(dataType == 'x-www-form-urlencoded') {
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+  }
+
+  if(dataType == 'json') {
+    xhr.setRequestHeader("Content-Type", "application/json")
+  }
+}
+
+// 获取请求数据
+function getBodyData() {
+  if(dataType == 'x-www-form-urlencoded') {
+    return parseFormUrlEncodedData()
+  }
+
+  if(dataType == 'form-data') {
+    return parseFormData()
+  }
+
+  if(dataType == 'json') {
+    if(methodSelect.value != 'GET') {
+      const text = document.getElementById("json-text").value
+      try {
+        JSON.parse(text)
+        return text
+      } catch (_unused) {
+        toast.show()
+      }
+    }
+
+    return null
+  }
+
+  return null
+}
+
+// 发送请求
+sendBtn.onclick = () => {
+  const method = methodSelect.value
+  const url = urlInput.value
+  xhr.open(method, url)
+  setXHRHeaders()
+  const data = getBodyData()
+  xhr.send(data)
+}
+
+urlInput.onkeydown = (e) => {
+  e.key == "Enter" && sendBtn.onclick()
+}
+
+xhr.onload = () => {
+  if ("application/json" == xhr.getResponseHeader("Content-Type")) {
+    displayEle.innerText = JSON.stringify(JSON.parse(xhr.response), null, 2)
+  } else {
+    displayEle.innerText = xhr.response
+  }
+}
+
+xhr.onerror = function(err){
+  displayEle.innerText = `请求出错：${xhr.status} ${xhr.statusText}`
+}
+
+</script>
